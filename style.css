@@ -1,0 +1,535 @@
+/* Base Styles */
+:root {
+    --primary-color: #e94e35;
+    --secondary-color: #4caf50;
+    --accent-color: #ff9800;
+    --text-color: #333333;
+    --light-text: #ffffff;
+    --background-color: #f9f9f9;
+    --card-bg: #ffffff;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  button {
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Header Styles */
+  header {
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .logo i {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+  }
+  
+  .logo h2 {
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+  
+  nav ul {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  nav ul li a {
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: var(--transition);
+  }
+  
+  nav ul li a:hover {
+    color: var(--primary-color);
+  }
+  
+  nav ul li a.active {
+    color: var(--primary-color);
+  }
+  
+  nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/tomato-leaf-early-blight-seMDtsbOrOw7Rru6LAKLAc5BhIyJsv.png');
+    background-size: cover;
+    background-position: center;
+    color: var(--light-text);
+    text-align: center;
+    padding: 5rem 1rem;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+  
+  /* Upload Container */
+  .upload-container {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .upload-area {
+    background-color: var(--card-bg);
+    border: 2px dashed #ddd;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    text-align: center;
+    transition: var(--transition);
+    cursor: pointer;
+  }
+  
+  .upload-area:hover {
+    border-color: var(--secondary-color);
+  }
+  
+  .upload-area.active {
+    border-color: var(--secondary-color);
+    background-color: rgba(76, 175, 80, 0.05);
+  }
+  
+  .upload-icon i {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+  }
+  
+  .upload-area h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .upload-area p {
+    color: #777;
+    margin-bottom: 1.5rem;
+  }
+  
+  .browse-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: var(--transition);
+  }
+  
+  .browse-btn:hover {
+    background-color: #3d8b40;
+    transform: translateY(-2px);
+  }
+  
+  /* Preview Container */
+  .preview-container {
+    display: none;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+  }
+  
+  .image-preview {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+  
+  .image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #f5f5f5;
+  }
+  
+  .remove-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+  }
+  
+  .remove-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .action-buttons {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .predict-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .predict-btn:hover {
+    background-color: #d04430;
+    transform: translateY(-2px);
+  }
+  
+  /* Results Container */
+  .results-container {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 0 1rem;
+    display: none;
+  }
+  
+  .loader {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(76, 175, 80, 0.2);
+    border-top-color: var(--secondary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .results {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+  }
+  
+  .result-header {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .confidence {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+  }
+  
+  .diagnosis {
+    display: flex;
+    padding: 1.5rem;
+    gap: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .diagnosis-icon {
+    font-size: 2rem;
+    color: var(--secondary-color);
+  }
+  
+  .diagnosis-icon.warning {
+    color: var(--accent-color);
+  }
+  
+  .diagnosis-icon.danger {
+    color: var(--primary-color);
+  }
+  
+  .diagnosis-details {
+    flex: 1;
+  }
+  
+  .diagnosis-details h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .treatment-info {
+    padding: 1.5rem;
+  }
+  
+  .treatment-info h3 {
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+  }
+  
+  /* Diseases Section */
+  .diseases-section {
+    background-color: #f5f5f5;
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+  
+  .diseases-section h2 {
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .diseases-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+  }
+  
+  .diseases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .disease-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+  }
+  
+  .disease-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .disease-image {
+    height: 180px;
+    overflow: hidden;
+  }
+  
+  .disease-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+  }
+  
+  .disease-card:hover .disease-image img {
+    transform: scale(1.05);
+  }
+  
+  .disease-card h3 {
+    padding: 1rem 1rem 0.5rem;
+    color: var(--primary-color);
+  }
+  
+  .disease-card p {
+    padding: 0 1rem 1rem;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  /* About Section */
+  .about-section {
+    padding: 4rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .about-section h2 {
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .about-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+  }
+  
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    text-align: left;
+  }
+  
+  .about-text p {
+    margin-bottom: 1rem;
+  }
+  
+  .how-it-works h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+  }
+  
+  .how-it-works ol {
+    padding-left: 1.5rem;
+  }
+  
+  .how-it-works li {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #333;
+    color: white;
+    padding: 2rem 1rem;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .footer-logo i {
+    color: var(--secondary-color);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .hero h1 {
+      font-size: 2rem;
+    }
+    
+    nav {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    
+    nav ul {
+      gap: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .diseases-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .hero h1 {
+      font-size: 1.8rem;
+    }
+    
+    .hero p {
+      font-size: 1rem;
+    }
+    
+    .upload-area {
+      padding: 1.5rem;
+    }
+    
+    .upload-icon i {
+      font-size: 2.5rem;
+    }
+  }

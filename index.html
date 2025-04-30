@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tomato Leaf Disease Detector</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <i class="fas fa-leaf"></i>
+        <h2>Tomato Doctor</h2>
+      </div>
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#diseases">Diseases</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Tomato Leaf Disease Detection</h1>
+        <p>Upload an image of a tomato leaf and our AI will identify if it's healthy or has a disease.</p>
+      </div>
+    </section>
+
+    <section class="upload-container">
+      <div class="upload-area" id="dropArea">
+        <div class="upload-icon">
+          <i class="fas fa-cloud-upload-alt"></i>
+        </div>
+        <h3>Drag & Drop or Click to Upload</h3>
+        <p>Supported formats: JPG, PNG, JPEG</p>
+        <input type="file" id="fileInput" accept="image/*" hidden>
+        <button class="browse-btn">Browse Files</button>
+      </div>
+
+      <div class="preview-container" id="previewContainer">
+        <div class="image-preview">
+          <img id="previewImage" src="/placeholder.svg" alt="Preview">
+          <button class="remove-btn" id="removeBtn"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="action-buttons">
+          <button class="predict-btn" id="predictBtn">Analyze Leaf</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="results-container" id="resultsContainer">
+      <div class="loader" id="loader">
+        <div class="spinner"></div>
+        <p>Analyzing image...</p>
+      </div>
+
+      <div class="results" id="results">
+        <div class="result-header">
+          <h2>Analysis Results</h2>
+          <span class="confidence" id="confidenceScore">Confidence: 95%</span>
+        </div>
+        
+        <div class="diagnosis">
+          <div class="diagnosis-icon" id="diagnosisIcon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <div class="diagnosis-details">
+            <h3 id="diagnosisTitle">Healthy</h3>
+            <p id="diagnosisDescription">Your tomato plant appears to be healthy with no signs of disease.</p>
+          </div>
+        </div>
+
+        <div class="treatment-info" id="treatmentInfo">
+          <h3>Prevention & Treatment</h3>
+          <p id="treatmentText">Continue with regular care practices like proper watering, soil management, and pest control.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="diseases-section" id="diseases">
+      <h2>Common Tomato Leaf Diseases</h2>
+      <div class="diseases-grid">
+        <div class="disease-card">
+          <div class="disease-image">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/tomato-early-blight-closeup-Nb8ByFqV37ONRpUvXDml5YufVqnLND.png" alt="Early Blight">
+          </div>
+          <h3>Early Blight</h3>
+          <p>Caused by the fungus Alternaria solani. It causes dark, concentric spots on the leaves.</p>
+        </div>
+        <div class="disease-card">
+          <div class="disease-image">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/tomato-late-blight-closeup-6vN3E2OS8TBBf3uDYqeJMEaUfUjgYl.png" alt="Late Blight">
+          </div>
+          <h3>Late Blight</h3>
+          <p>Caused by Phytophthora infestans. It leads to large, irregular, water-soaked lesions.</p>
+        </div>
+        <div class="disease-card">
+          <div class="disease-image">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/tomato-leaf-bacterial-spot-JeP5vIf4dR0LsyxUqS5eN69v778BaI.png" alt="Bacterial Spot">
+          </div>
+          <h3>Bacterial Spot</h3>
+          <p>Caused by Xanthomonas campestris. It causes dark, water-soaked lesions on leaves.</p>
+        </div>
+        <div class="disease-card">
+          <div class="disease-image">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/tomato-leaf-septoria-wv6XcA2M6aX2NRXC7zuCfOhljNIllZ.png" alt="Septoria Leaf Spot">
+          </div>
+          <h3>Septoria Leaf Spot</h3>
+          <p>Caused by Septoria lycopersici. It causes small, round, dark spots on the leaves.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <h2>About This Tool</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>This tomato leaf disease detection tool uses machine learning to identify common diseases affecting tomato plants. Early detection of plant diseases can help farmers and gardeners take appropriate measures to prevent crop loss.</p>
+          <p>Our model has been trained on thousands of images of healthy and diseased tomato leaves to provide accurate predictions for 10 different conditions.</p>
+        </div>
+        <div class="how-it-works">
+          <h3>How It Works</h3>
+          <ol>
+            <li>Upload a clear image of a tomato leaf</li>
+            <li>Our AI analyzes the image for disease patterns</li>
+            <li>Get instant results with disease information</li>
+            <li>Follow the recommended treatment guidelines</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <i class="fas fa-leaf"></i>
+        <h3>Tomato Doctor</h3>
+      </div>
+      <p>© 2023 Tomato Leaf Disease Detector. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
