@@ -132,7 +132,7 @@ const diseaseDescriptions = {
     formData.append('file', fileInput.files[0]);
   
     try {
-      const response = await fetch('https://c594-34-143-163-82.ngrok-free.app/predict', {
+      const response = await fetch('https://3fff-34-53-91-173.ngrok-free.app/predict', {
         method: 'POST',
         body: formData
       });
